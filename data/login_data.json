@@ -1,0 +1,26 @@
+[
+  {
+    "phone": "15154251600",
+    "password": "123456",
+    "code": "8888",
+    "expect_result": "安全退出"
+  },
+  {
+    "phone": "151542516",
+    "password": "123456",
+    "code": "8888",
+    "expect_result": "账号格式不匹配"
+  },
+  {
+    "phone": "15154251601",
+    "password": "123456",
+    "code": "8888",
+    "expect_result": "账号不存在"
+  },
+  {
+    "phone": "15154251600",
+    "password": "123455",
+    "code": "8888",
+    "expect_result": "密码错误"
+  }
+]

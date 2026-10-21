@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+    <title>本地 TPshop 登录练习环境</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            color: #333;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: #f6f7fb;
+        }
+        .header {
+            height: 86px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1120px;
+            margin: auto;
+            padding: 0 24px;
+        }
+        .brand { color: #d71920; font-size: 28px; font-weight: 700; }
+        .environment { color: #777; font-size: 14px; }
+        .main {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 24px;
+            background: linear-gradient(135deg, #aa1017, #df343b);
+        }
+        .login-card {
+            width: 390px;
+            padding: 34px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 18px 50px rgba(65, 0, 0, .28);
+        }
+        h1 { margin: 0 0 26px; font-size: 23px; }
+        .field { margin-bottom: 17px; }
+        label { display: block; margin-bottom: 7px; font-size: 14px; color: #555; }
+        input {
+            width: 100%;
+            height: 44px;
+            padding: 0 13px;
+            border: 1px solid #d8dce5;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+        input:focus { border-color: #df343b; box-shadow: 0 0 0 3px rgba(223, 52, 59, .1); }
+        .verify-row { display: grid; grid-template-columns: 1fr 104px; gap: 12px; }
+        .captcha {
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            color: #a31218;
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            background: repeating-linear-gradient(145deg, #fff1f1 0 8px, #ffe1e1 8px 16px);
+        }
+        .J-login-submit {
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 24px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 17px;
+            text-decoration: none;
+            background: #d71920;
+            cursor: pointer;
+        }
+        .tip { margin: 18px 0 0; color: #888; font-size: 13px; line-height: 1.7; }
+        .footer { padding: 26px; color: #999; text-align: center; font-size: 13px; }
+        .layui-layer-shade {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, .45);
+        }
+        .layui-layer {
+            width: 390px;
+            overflow: hidden;
+            border-radius: 4px;
+            background: white;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, .32);
+        }
+        .dialog-title { padding: 16px 22px; border-bottom: 1px solid #eee; font-size: 17px; }
+        .layui-layer-content { padding: 30px 24px; font-size: 17px; }
+        .dialog-actions { padding: 0 24px 20px; text-align: right; }
+        .layui-layer-btn0 {
+            padding: 9px 23px;
+            border: 0;
+            border-radius: 3px;
+            color: white;
+            font-size: 15px;
+            background: #2f88df;
+            cursor: pointer;
+        }
+        .success-card { text-align: center; }
+        .success-mark { color: #25a55f; font-size: 54px; }
+        .logout { display: inline-block; margin-top: 18px; color: #d71920; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="brand">TPshop 本地练习站</div>
+        <div class="environment">Selenium PO 模式测试环境</div>
+    </header>
+
+    <main class="main">
+        <section class="login-card" id="login-panel">
+            <h1>账户登录</h1>
+            <form id="loginform">
+                <div class="field">
+                    <label for="username">用户名</label>
+                    <input id="username" name="username" type="text" placeholder="请输入手机号" autocomplete="off">
+                </div>
+                <div class="field">
+                    <label for="password">密码</label>
+                    <input id="password" name="password" type="password" placeholder="请输入密码" autocomplete="off">
+                </div>
+                <div class="field">
+                    <label for="verify_code">验证码</label>
+                    <div class="verify-row">
+                        <input id="verify_code" name="verify_code" type="text" placeholder="请输入验证码" autocomplete="off">
+                        <div class="captcha" title="万能验证码">8888</div>
+                    </div>
+                </div>
+                <a href="javascript:void(0);" class="J-login-submit" name="sbtbutton">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+            </form>
+            <p class="tip">有效账号：15154251600　密码：123456<br>万能验证码：8888</p>
+        </section>
+
+        <section class="login-card success-card" id="success-panel" hidden>
+            <div class="success-mark">✓</div>
+            <h1>登录成功</h1>
+            <p>欢迎进入本地自动化测试环境。</p>
+            <a class="logout" href="/Home/user/login.html">安全退出</a>
+        </section>
+    </main>
+
+    <footer class="footer">本页面完全在本机运行，不依赖外部 CSS、图片或接口。</footer>
+
+    <div class="layui-layer-shade" id="dialog" role="dialog" aria-modal="true">
+        <div class="layui-layer">
+            <div class="dialog-title">信息</div>
+            <div class="layui-layer-content"></div>
+            <div class="dialog-actions">
+                <button class="layui-layer-btn0" type="button">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const VALID_USERNAME = "15154251600";
+        const VALID_PASSWORD = "123456";
+        const VERIFY_CODE = "8888";
+
+        const dialog = document.querySelector("#dialog");
+        const dialogMessage = document.querySelector(".layui-layer-content");
+
+        function showErrorMsg(message) {
+            dialogMessage.textContent = message;
+            dialog.style.display = "flex";
+        }
+
+        function closeDialog() {
+            dialog.style.display = "none";
+        }
+
+        function checkSubmit() {
+            const username = document.querySelector("#username").value.trim();
+            const password = document.querySelector("#password").value.trim();
+            const verifyCode = document.querySelector("#verify_code").value.trim();
+
+            if (!username) return showErrorMsg("用户名不能为空!");
+            if (!/^1\d{10}$/.test(username)) return showErrorMsg("账号格式不匹配!");
+            if (!password) return showErrorMsg("密码不能为空!");
+            if (!verifyCode) return showErrorMsg("验证码不能为空!");
+            if (verifyCode !== VERIFY_CODE) return showErrorMsg("验证码错误!");
+            if (username !== VALID_USERNAME) return showErrorMsg("账号不存在!");
+            if (password !== VALID_PASSWORD) return showErrorMsg("密码错误!");
+
+            document.querySelector("#login-panel").hidden = true;
+            document.querySelector("#success-panel").hidden = false;
+        }
+
+        document.querySelector(".J-login-submit").addEventListener("click", checkSubmit);
+        document.querySelector(".layui-layer-btn0").addEventListener("click", closeDialog);
+        document.querySelector("#loginform").addEventListener("submit", event => {
+            event.preventDefault();
+            checkSubmit();
+        });
+    </script>
+</body>
+</html>

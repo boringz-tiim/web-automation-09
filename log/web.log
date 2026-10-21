@@ -1,0 +1,16 @@
+2026-10-20 18:00:02,033 INFO [test_login.py(test_01_login_success:19)] - 执行结果:安全退出
+2026-10-20 18:00:05,826 INFO [test_login.py(test_01_login_success:19)] - 执行结果:账号格式不匹配!
+2026-10-20 18:00:10,163 INFO [test_login.py(test_01_login_success:19)] - 执行结果:账号不存在!
+2026-10-20 18:00:16,804 INFO [test_login.py(test_01_login_success:19)] - 执行结果:密码错误!
+2026-10-20 18:17:38,382 INFO [test_login.py(test_01_login_success:19)] - 执行结果:安全退出
+2026-10-20 18:17:38,391 INFO [test_login.py(test_01_login_success:23)] - 执行异常:module 'datetime' has no attribute 'now'
+2026-10-20 18:17:46,123 INFO [test_login.py(test_01_login_success:19)] - 执行结果:账号格式不匹配!
+2026-10-20 18:17:46,126 INFO [test_login.py(test_01_login_success:23)] - 执行异常:module 'datetime' has no attribute 'now'
+2026-10-20 18:17:49,873 INFO [test_login.py(test_01_login_success:19)] - 执行结果:账号不存在!
+2026-10-20 18:17:49,873 INFO [test_login.py(test_01_login_success:23)] - 执行异常:module 'datetime' has no attribute 'now'
+2026-10-20 18:17:53,733 INFO [test_login.py(test_01_login_success:19)] - 执行结果:密码错误!
+2026-10-20 18:17:53,733 INFO [test_login.py(test_01_login_success:23)] - 执行异常:module 'datetime' has no attribute 'now'
+2026-10-20 18:22:12,834 INFO [test_login.py(test_01_login_success:19)] - 执行结果:安全退出
+2026-10-20 18:22:16,949 INFO [test_login.py(test_01_login_success:19)] - 执行结果:账号格式不匹配!
+2026-10-20 18:22:21,898 INFO [test_login.py(test_01_login_success:19)] - 执行结果:账号不存在!
+2026-10-20 18:22:29,979 INFO [test_login.py(test_01_login_success:19)] - 执行结果:密码错误!
